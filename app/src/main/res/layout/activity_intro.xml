@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_welcome_sleep"
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:context=".activities.IntroActivity">
+
+        <TextView
+            android:id="@+id/introTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue_bd"
+            android:text="@string/welcome"
+            android:textColor="@color/Color_White"
+            android:textSize="30sp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@id/description"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue_light"
+            android:text="@string/description_paragraph"
+            android:textColor="@color/Color_White"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toTopOf="@id/birds"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/birds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/introbirds"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/line_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/get_started"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="70dp"
+            android:fontFamily="@font/helvetica_neue_bd"
+            android:padding="20dp"
+            android:text="@string/get_started"
+            android:textAllCaps="true"
+            android:textColor="@color/Color_White"
+            app:backgroundTint="@color/button_background"
+            app:cornerRadius="25dp"
+            app:layout_constraintBottom_toTopOf="@id/line"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
