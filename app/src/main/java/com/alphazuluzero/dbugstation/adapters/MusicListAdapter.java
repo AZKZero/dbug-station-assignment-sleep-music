@@ -54,9 +54,9 @@ public class MusicListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         int index2 = index1 + 1;
         ViewHolder viewHolder = (ViewHolder) holder;
         if (musicList.size() > index1) {
-            MusicListModel musicModel1 = musicList.get(holder.getAdapterPosition() * 2);
+            MusicListModel musicModel1 = musicList.get(index1);
             viewHolder.musicItemBinding.music1Album.setText(musicModel1.getAlbumName());
-            viewHolder.musicItemBinding.music1Name.setText(musicModel1.getAlbumName());
+            viewHolder.musicItemBinding.music1Name.setText(musicModel1.getMusicName());
             viewHolder.musicItemBinding.music1Duration.setText(String.format(Locale.US, "%d MIN", (int) musicModel1.getDurationInSeconds() / 60));
 
             Picasso.get().load(musicModel1.getMusicImageResInt()).into(viewHolder.musicItemBinding.music1Image, new Callback() {
@@ -81,9 +81,9 @@ public class MusicListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
         if (musicList.size() > index2) {
             viewHolder.musicItemBinding.view2.setVisibility(View.VISIBLE);
-            MusicListModel musicModel2 = musicList.get(holder.getAdapterPosition() * 2);
+            MusicListModel musicModel2 = musicList.get(index2);
             viewHolder.musicItemBinding.music2Album.setText(musicModel2.getAlbumName());
-            viewHolder.musicItemBinding.music2Name.setText(musicModel2.getAlbumName());
+            viewHolder.musicItemBinding.music2Name.setText(musicModel2.getMusicName());
             viewHolder.musicItemBinding.music2Duration.setText(String.format(Locale.US, "%d MIN", (int) musicModel2.getDurationInSeconds() / 60));
 
             Picasso.get().load(musicModel2.getMusicImageResInt()).into(viewHolder.musicItemBinding.music2Image, new Callback() {

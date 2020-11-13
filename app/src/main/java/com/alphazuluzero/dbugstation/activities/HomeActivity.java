@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.alphazuluzero.dbugstation.R;
+
 public class HomeActivity extends AppCompatActivity {
 
     @Override

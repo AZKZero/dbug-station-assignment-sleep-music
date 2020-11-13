@@ -3,12 +3,12 @@ package com.alphazuluzero.dbugstation.models;
 public class MusicListModel {
     private String musicName;
     private String albumName;
-    private double durationInSeconds;
+    private int durationInSeconds;
     private String musicImageUrl;
     private int musicImageResInt;
     private int id;
 
-    public MusicListModel(int id, String musicName, String albumName, double durationInSeconds, String musicImageUrl, int musicImageResInt) {
+    public MusicListModel(int id, String musicName, String albumName, int durationInSeconds, String musicImageUrl, int musicImageResInt) {
         this.id = id;
         this.musicName = musicName;
         this.albumName = albumName;
@@ -17,11 +17,11 @@ public class MusicListModel {
         this.musicImageResInt = musicImageResInt;
     }
 
-    public double getDurationInSeconds() {
+    public int getDurationInSeconds() {
         return durationInSeconds;
     }
 
-    public void setDurationInSeconds(double durationInSeconds) {
+    public void setDurationInSeconds(int durationInSeconds) {
         this.durationInSeconds = durationInSeconds;
     }
 

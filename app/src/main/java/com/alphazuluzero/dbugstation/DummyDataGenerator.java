@@ -8,7 +8,7 @@ import java.util.Random;
 public class DummyDataGenerator {
     public static ArrayList<MusicListModel> musicListModels;
 
-    public static void generateModels() {
+    public static ArrayList<MusicListModel> generateModels() {
         ArrayList<MusicListModel> results = new ArrayList<>();
         int id = 0;
         results.add(new MusicListModel(++id, "Night Island", "Sleep Music", 90 * 60, "musicImageUrl", R.drawable.nightisland));
@@ -24,12 +24,21 @@ public class DummyDataGenerator {
         results.add(new MusicListModel(++id, "Good Night", "Sleep Music", 45 * 60, "musicImageUrl", R.drawable.goodnight));
         results.add(new MusicListModel(++id, "Night Island", "Sleep Music", 45 * 60, "musicImageUrl", R.drawable.nightisland));
 
-        musicListModels = results;
+        return musicListModels = results;
     }
 
     public static int getRandomRatings() {
         Random random = new Random();
         double d = random.nextDouble();
         return (int) d * 10000;
+    }
+
+    public static MusicListModel getMusicModel(int id) {
+        if (musicListModels == null) generateModels();
+        for (MusicListModel musicListModel :
+                musicListModels) {
+            if (musicListModel.getId() == id) return musicListModel;
+        }
+        return null;
     }
 }

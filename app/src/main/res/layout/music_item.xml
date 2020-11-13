@@ -9,9 +9,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/view1"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/view2"
             app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,8 @@
 
             <ImageView
                 android:id="@+id/music_1_image"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:scaleType="fitStart"
                 android:layout_height="wrap_content"
                 android:src="@drawable/wavepng_1_resize"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -28,12 +29,15 @@
 
             <TextView
                 android:id="@+id/music_1_name"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helvetica_neue_bd"
                 android:text="@string/music_name_placeholder"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/Color_White"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/music_1_image"
+                app:layout_constraintStart_toStartOf="@id/music_1_image"
                 app:layout_constraintTop_toBottomOf="@id/music_1_image" />
 
             <TextView
@@ -47,7 +51,7 @@
                 android:textColor="#98A1BD"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/music_1_name"
                 app:layout_constraintTop_toBottomOf="@id/music_1_name" />
 
             <ImageView
@@ -67,7 +71,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/helvetica_neue_bd"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/dot"
                 android:textAllCaps="true"
                 android:textColor="#98A1BD"
@@ -80,9 +84,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/view2"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/view1"
@@ -91,7 +95,8 @@
 
             <ImageView
                 android:id="@+id/music_2_image"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:scaleType="fitStart"
                 android:layout_height="wrap_content"
                 android:src="@drawable/wavepng_1_resize"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -100,12 +105,15 @@
 
             <TextView
                 android:id="@+id/music_2_name"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helvetica_neue_bd"
                 android:text="@string/music_name_placeholder"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/Color_White"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/music_2_image"
+                app:layout_constraintStart_toStartOf="@id/music_2_image"
                 app:layout_constraintTop_toBottomOf="@id/music_2_image" />
 
             <TextView
@@ -119,7 +127,7 @@
                 android:textColor="#98A1BD"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/music_2_name"
                 app:layout_constraintTop_toBottomOf="@id/music_2_name" />
 
             <ImageView
@@ -139,7 +147,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/helvetica_neue_bd"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/dot"
                 android:textAllCaps="true"
                 android:textColor="#98A1BD"

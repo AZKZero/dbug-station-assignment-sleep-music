@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activities.HomeActivity"></activity>
-        <activity android:name=".activities.IntroActivity">
+        <activity android:name=".activities.TestRecyclerViewActivity" />
+        <activity android:name=".activities.HomeActivity" />
+        <activity
+            android:name=".activities.IntroActivity"
+            android:theme="@style/AppTheme.NoActionBar.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

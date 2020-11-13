@@ -7,4 +7,6 @@
     <string name="description_paragraph">Explore the new king of sleep.It uses sound\nand vesualization to create perfect conditions\nfor refreshing sleep.</string>
     <string name="welcome">Welcome To Sleep</string>
     <string name="dot">.</string>
+    <string name="sleep_music">Sleep Music</string>
+    <string name="_00_00">00:00</string>
 </resources>

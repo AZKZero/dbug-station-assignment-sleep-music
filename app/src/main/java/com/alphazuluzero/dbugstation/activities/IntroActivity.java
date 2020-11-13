@@ -18,7 +18,7 @@ public class IntroActivity extends AppCompatActivity {
         ActivityIntroBinding activityIntroBinding = DataBindingUtil.setContentView(this, R.layout.activity_intro);
         DummyDataGenerator.generateModels();
         activityIntroBinding.getStarted.setOnClickListener(v -> {
-            startActivity(new Intent(this, PlayerActivity.class));
+            startActivity(new Intent(this, TestRecyclerViewActivity.class));
         });
     }
 }
