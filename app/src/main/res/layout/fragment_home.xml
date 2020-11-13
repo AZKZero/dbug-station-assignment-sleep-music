@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:background="#03174D"
+            android:backgroundTint="#03174D"
+            android:elevation="6dp"
+            android:stateListAnimator="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorGravity="top"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="fixed" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

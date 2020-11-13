@@ -6,4 +6,5 @@
     <string name="get_started">Get Started</string>
     <string name="description_paragraph">Explore the new king of sleep.It uses sound\nand vesualization to create perfect conditions\nfor refreshing sleep.</string>
     <string name="welcome">Welcome To Sleep</string>
+    <string name="dot">.</string>
 </resources>
