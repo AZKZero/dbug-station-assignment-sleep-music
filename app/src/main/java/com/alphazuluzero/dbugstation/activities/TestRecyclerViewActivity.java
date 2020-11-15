@@ -23,6 +23,10 @@ public class TestRecyclerViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityTestRecyclerViewBinding activityTestRecyclerViewBinding = DataBindingUtil.setContentView(this, R.layout.activity_test_recycler_view);
+
+        String tag = getIntent().getStringExtra("tag");
+        if (tag != null) activityTestRecyclerViewBinding.title.setText(String.format("%s Music", tag));
+
         activityTestRecyclerViewBinding.testList.setLayoutManager(new LinearLayoutManager(this));
         activityTestRecyclerViewBinding.testList.setAdapter(new MusicListAdapter(DummyDataGenerator.generateModels(), this));
 

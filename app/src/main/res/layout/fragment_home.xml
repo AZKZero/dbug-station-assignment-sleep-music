@@ -15,7 +15,7 @@
                 android:id="@+id/introTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/helvetica_neue_bd"
                 android:text="@string/welcome"
                 android:textColor="@color/Color_White"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/helvetica_neue_light"
-                android:text="@string/description_paragraph"
+                android:text="@string/description_paragraph_2"
                 android:textAlignment="center"
                 android:textColor="@color/Color_White"
                 android:textSize="16sp"
@@ -41,9 +41,9 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs_top"
                 android:layout_width="match_parent"
-                android:layout_height="92dp"
+                android:layout_height="90dp"
                 android:layout_marginTop="10dp"
-                android:elevation="6dp"
+                android:background="#00000000"
                 android:stateListAnimator="@null"
                 app:layout_constraintTop_toBottomOf="@id/description"
                 app:tabIndicatorFullWidth="false"
@@ -56,15 +56,17 @@
                 layout="@layout/home_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_margin="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tabs_top" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/music"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:nestedScrollingEnabled="false"
                 app:layout_constraintTop_toBottomOf="@id/home_card" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
