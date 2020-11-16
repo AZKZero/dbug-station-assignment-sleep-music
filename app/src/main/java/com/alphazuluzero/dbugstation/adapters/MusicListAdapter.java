@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alphazuluzero.dbugstation.R;
-import com.alphazuluzero.dbugstation.activities.PlayerActivity;
+import com.alphazuluzero.dbugstation.activities.MusicInfoActivity;
 import com.alphazuluzero.dbugstation.databinding.MusicItemBinding;
 import com.alphazuluzero.dbugstation.models.MusicListModel;
 import com.squareup.picasso.Callback;
@@ -28,6 +29,8 @@ public class MusicListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     private final ArrayList<MusicListModel> musicList;
     private final Activity context;
+
+    private static final String TAG = "MusicListAdapter";
 
     public MusicListAdapter(ArrayList<MusicListModel> musicList, Activity context) //adapter gets the json array and turns it into a list of products
     {
@@ -75,9 +78,8 @@ public class MusicListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 }
             });
 
-            viewHolder.musicItemBinding.view1.setOnClickListener(v -> {
-                context.startActivity(new Intent(context, PlayerActivity.class).putExtra("musicId", musicModel1.getId()));
-            });
+            viewHolder.musicItemBinding.view1.setOnClickListener(v -> context.startActivity(new Intent(context, MusicInfoActivity.class).putExtra("musicId", musicModel1.getId())));
+
         }
         if (musicList.size() > index2) {
             viewHolder.musicItemBinding.view2.setVisibility(View.VISIBLE);
@@ -102,16 +104,15 @@ public class MusicListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 }
             });
 
-            viewHolder.musicItemBinding.view2.setOnClickListener(v -> {
-                context.startActivity(new Intent(context, PlayerActivity.class).putExtra("musicId", musicModel2.getId()));
-            });
+            viewHolder.musicItemBinding.view2.setOnClickListener(v -> context.startActivity(new Intent(context, MusicInfoActivity.class).putExtra("musicId", musicModel2.getId())));
         } else viewHolder.musicItemBinding.view2.setVisibility(View.GONE);
     }
 
     @Override
     public int getItemCount() {
-
-        return musicList.size() / 2;
+        int i = musicList.size();
+        Log.i(TAG, "getItemCount: " + i);
+        return i % 2 == 0 ? i / 2 : i / 2 + 1;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

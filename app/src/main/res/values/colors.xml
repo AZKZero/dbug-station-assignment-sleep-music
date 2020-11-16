@@ -6,6 +6,7 @@
     <color name="background_fill">#03174C</color>
     <color name="seekbar_unfilled">#6A8BED</color>
     <color name="button_background">#8E97FD</color>
+    <color name="subtext_color">#98A1BD</color>
     <color name="Color_AliceBlue">#F0F8FF</color>
     <color name="Color_AntiqueWhite">#FAEBD7</color>
     <color name="Color_Aqua">#00FFFF</color>

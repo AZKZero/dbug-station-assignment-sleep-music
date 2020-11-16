@@ -1,7 +1,9 @@
 package com.alphazuluzero.dbugstation.activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.SeekBar;
 
@@ -39,13 +41,15 @@ public class PlayerActivity extends AppCompatActivity {
             activityPlayerBinding.back15.setOnClickListener(v -> {
                 currentSeconds = currentSeconds < 15 ? 0 : currentSeconds - 15;
                 activityPlayerBinding.startTime.setText(String.format(Locale.US, "%02d:%02d", (int) currentSeconds / 60, (int) currentSeconds % 60));
-                activityPlayerBinding.playbar.setProgress(currentSeconds * 100 / musicModel.getDurationInSeconds());
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) activityPlayerBinding.playbar.setProgress(currentSeconds * 100 / musicModel.getDurationInSeconds());
+                else activityPlayerBinding.playbar.setProgress(currentSeconds * 100 / musicModel.getDurationInSeconds(), true);
             });
             activityPlayerBinding.front15.setOnClickListener(v -> {
                 currentSeconds = Math.min(currentSeconds + 15, musicModel.getDurationInSeconds());
                 Log.i(TAG, "onCreate: " + currentSeconds + " " + currentSeconds + " " + currentSeconds * 100 / musicModel.getDurationInSeconds());
                 activityPlayerBinding.startTime.setText(String.format(Locale.US, "%02d:%02d", (int) currentSeconds / 60, (int) currentSeconds % 60));
-                activityPlayerBinding.playbar.setProgress(currentSeconds * 100 / musicModel.getDurationInSeconds());
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) activityPlayerBinding.playbar.setProgress(currentSeconds * 100 / musicModel.getDurationInSeconds());
+                else activityPlayerBinding.playbar.setProgress(currentSeconds * 100 / musicModel.getDurationInSeconds(), true);
             });
 
             activityPlayerBinding.playbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
