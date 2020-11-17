@@ -21,10 +21,10 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="@drawable/tab_background_selector"
-            android:scaleType="center"
+            android:scaleType="centerInside"
             android:src="@drawable/tab_all"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
