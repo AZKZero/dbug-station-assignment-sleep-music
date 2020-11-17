@@ -1,37 +1,22 @@
-## Welcome to GitHub Pages
+# D-Bug Station Assignment
 
-You can use the [editor on GitHub](https://github.com/AZKZero/dbug-station-assignment-sleep-music/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Application repository for assignment - Sleep
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Activity Classes
 
-### Markdown
+* [IntroActivity](app/src/main/java/com/alphazuluzero/dbugstation/activities/IntroActivity.java)
+* [HomeActivity](app/src/main/java/com/alphazuluzero/dbugstation/activities/HomeActivity.java)
+* [MusicInfoActivity](app/src/main/java/com/alphazuluzero/dbugstation/activities/MusicInfoActivity.java)
+* [PlayerActivity](app/src/main/java/com/alphazuluzero/dbugstation/activities/PlayerActivity.java)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Adapter Classes
 
-```markdown
-Syntax highlighted code block
+* [MusicListAdapter](app/src/main/java/com/alphazuluzero/dbugstation/adapters/MusicListAdapter.java)
+* [MusicPagerAdapter](app/src/main/java/com/alphazuluzero/dbugstation/adapters/MusicPagerAdapter.java)
 
-# Header 1
-## Header 2
-### Header 3
+## Helper Classes
 
-- Bulleted
-- List
+* [OnFragmentBackPressListener](app/src/main/java/com/alphazuluzero/dbugstation/interfaces/OnFragmentBackPressListener.java)
+* [DummyDataGenerator](app/src/main/java/com/alphazuluzero/dbugstation/DummyDataGenerator.java)
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AZKZero/dbug-station-assignment-sleep-music/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[**Debug APK**](app/build/outputs/apk/debug/app-debug.apk)
