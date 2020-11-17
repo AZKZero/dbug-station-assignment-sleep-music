@@ -1,4 +1,4 @@
-# D-bug Station Assignment
+# D-Bug Station Assignment
 
 Application repository for assignment - Sleep
 
