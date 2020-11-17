@@ -34,6 +34,8 @@ public class MusicInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityMusicInfoBinding musicInfoBinding = DataBindingUtil.setContentView(this, R.layout.activity_music_info);
 
+        musicInfoBinding.back.setOnClickListener(v -> finish());
+
         WindowManager manager = (WindowManager) getBaseContext().getSystemService(Context.WINDOW_SERVICE);
 
         Point point = new Point();
