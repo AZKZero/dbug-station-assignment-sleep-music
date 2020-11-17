@@ -16,20 +16,27 @@ import com.alphazuluzero.dbugstation.R;
 import com.alphazuluzero.dbugstation.adapters.MusicPagerAdapter;
 import com.alphazuluzero.dbugstation.databinding.ActivityHomeBinding;
 import com.alphazuluzero.dbugstation.databinding.TabItemTopBinding;
+import com.alphazuluzero.dbugstation.fragments.AlbumFragment;
 import com.alphazuluzero.dbugstation.fragments.ContentFragment;
 import com.alphazuluzero.dbugstation.fragments.MusicPageFragment;
+import com.alphazuluzero.dbugstation.interfaces.OnFragmentBackPressListener;
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
+/**
+ * An Activity class to hold all the fragments in the home page.<br>
+ * It implements a {@link androidx.viewpager.widget.ViewPager} and a {@link TabLayout} to cycle through the fragments
+ */
+public class HomeActivity extends AppCompatActivity implements OnFragmentBackPressListener {
+    ActivityHomeBinding activityHomeBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityHomeBinding activityHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+        activityHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
 
         WindowManager manager = (WindowManager) getBaseContext().getSystemService(Context.WINDOW_SERVICE);
 
@@ -60,6 +67,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Picasso.get().load(R.drawable.clound_background).transform(transformation).into(activityHomeBinding.cloud);
 
+        // List of fragments for the adapter
         ArrayList<Fragment> fragments = new ArrayList<>();
         ArrayList<String> titles = new ArrayList<>();
 
@@ -70,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
         titles.add("Afsar");
 
         fragments.add(new MusicPageFragment(this, titles.get(0)));
-        fragments.add(new ContentFragment(this, titles.get(1)));
+        fragments.add(new AlbumFragment(this, titles.get(1), this));
         fragments.add(new ContentFragment(this, titles.get(2)));
         fragments.add(new ContentFragment(this, titles.get(3)));
         fragments.add(new ContentFragment(this, titles.get(4)));
@@ -78,6 +86,7 @@ public class HomeActivity extends AppCompatActivity {
         activityHomeBinding.container.setAdapter(new MusicPagerAdapter(getSupportFragmentManager(), fragments));
         activityHomeBinding.tabsBottom.setupWithViewPager(activityHomeBinding.container);
 
+        // Initializing custom tabs for the outer TabLayout
         for (int i = 0; i < 5; i++) {
             TabItemTopBinding tabItemTopBinding = DataBindingUtil.bind(View.inflate(this, R.layout.tab_item_top, null));
             assert tabItemTopBinding != null;
@@ -109,5 +118,17 @@ public class HomeActivity extends AppCompatActivity {
                 tabAt.setCustomView(tabItemTopBinding.getRoot());
             }
         }
+    }
+
+    @Override
+    public void onFragmentBackPressed() {
+        activityHomeBinding.container.setCurrentItem(0, true);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (activityHomeBinding.container.getCurrentItem() != 0)
+            activityHomeBinding.container.setCurrentItem(0, true);
+        else super.onBackPressed();
     }
 }

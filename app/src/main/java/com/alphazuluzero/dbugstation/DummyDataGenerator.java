@@ -5,6 +5,9 @@ import com.alphazuluzero.dbugstation.models.MusicListModel;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * A class to generate dummy data for the music lists
+ */
 public class DummyDataGenerator {
     public static ArrayList<MusicListModel> musicListModels;
 

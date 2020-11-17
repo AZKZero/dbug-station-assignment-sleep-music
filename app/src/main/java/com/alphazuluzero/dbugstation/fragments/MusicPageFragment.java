@@ -31,12 +31,20 @@ import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+/**
+ * A {@link Fragment} to populate the {@link androidx.viewpager.widget.ViewPager} component in {@link com.alphazuluzero.dbugstation.activities.HomeActivity}
+ */
 public class MusicPageFragment extends Fragment {
     private AppCompatActivity activity;
     private String title;
     private static final String TAG = "MusicPageFragment";
 
-
+    /**
+     * Get an instance of this fragment
+     *
+     * @param activity {@link AppCompatActivity} used in place of the context supplied
+     * @param title    fragment title (<i>unused</i>)
+     */
     public MusicPageFragment(AppCompatActivity activity, String title) {
         this();
         this.activity = activity;
@@ -50,9 +58,9 @@ public class MusicPageFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
+        // DataBinding for this fragment
         com.alphazuluzero.dbugstation.databinding.FragmentHomeBinding homeBinding = DataBindingUtil.bind(view);
         assert homeBinding != null;
         assert activity != null;
@@ -62,12 +70,14 @@ public class MusicPageFragment extends Fragment {
         Point point = new Point();
         manager.getDefaultDisplay().getSize(point);
 
+        // Image Transformation for Picasso library
         Transformation transformation = new Transformation() {
 
             @Override
             public Bitmap transform(Bitmap source) {
                 Log.i(TAG, "transform: " + container.getWidth());
 
+                // We use the entire screen width as a reference to resize the image to remove blank height
                 int targetWidth = point.x;
 
                 double aspectRatio = (double) source.getHeight() / (double) source.getWidth();
@@ -87,6 +97,8 @@ public class MusicPageFragment extends Fragment {
         };
 
         Picasso.get().load(R.drawable._228_1_enlarged).transform(transformation).into(homeBinding.homeCard.homeCardImage);
+
+        // Initializing custom tabs for the inner TabLayout
         for (int i = 0; i < 5; i++) {
             TabItemTopBinding tabItemTopBinding = DataBindingUtil.bind(View.inflate(activity, R.layout.tab_item_top, null));
             assert tabItemTopBinding != null;
@@ -114,11 +126,8 @@ public class MusicPageFragment extends Fragment {
                     break;
             }
             TabLayout.Tab tabAt = homeBinding.tabsTop.newTab();
-//            if (tabAt != null) {
             tabAt.setCustomView(tabItemTopBinding.getRoot());
             homeBinding.tabsTop.addTab(tabAt);
-
-//            }
         }
 
         homeBinding.tabsTop.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -143,10 +152,6 @@ public class MusicPageFragment extends Fragment {
         RecyclerView recyclerView = homeBinding.music;
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setAdapter(new MusicListAdapter(DummyDataGenerator.generateModels(), activity));
-//        CustomDividerDecoration dividerDecoration = new CustomDividerDecoration(ContextCompat.getDrawable(activity, R.drawable.line_red_thin));
-//        recyclerView.addItemDecoration(dividerDecoration);
-//        recyclerView.setAdapter(hotelItemAdapter);
-
 
         return homeBinding.getRoot();
     }

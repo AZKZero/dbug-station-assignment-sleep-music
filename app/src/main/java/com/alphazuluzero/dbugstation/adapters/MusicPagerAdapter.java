@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class MusicPagerAdapter extends FragmentStatePagerAdapter {
 
     private ArrayList<Fragment> fragments;
-    private int mCurrentPosition;
 
     public MusicPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -38,17 +37,4 @@ public class MusicPagerAdapter extends FragmentStatePagerAdapter {
                 : fragment.getTag();*/
         return "";
     }
-
-    /*@Override
-    public void setPrimaryItem(ViewGroup container, int position, Object object) {
-        super.setPrimaryItem(container, position, object);
-        if (position != mCurrentPosition) {
-            Fragment fragment = (Fragment) object;
-            HotelPager pager = (HotelPager) container;
-            if (fragment.getView() != null) {
-                mCurrentPosition = position;
-                pager.measureCurrentView(fragment.getView());
-            }
-        }
-    }*/
 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.databinding.DataBindingUtil;
@@ -25,14 +26,29 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * A two-item RecyclerView Adapter for displaying music lists
+ */
 public class MusicListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    /**
+     * {@link ArrayList} of {@link MusicListModel} to display
+     */
     private final ArrayList<MusicListModel> musicList;
-    private final Activity context;
+    /**
+     * {@link AppCompatActivity} reference
+     */
+    private final AppCompatActivity context;
 
     private static final String TAG = "MusicListAdapter";
 
-    public MusicListAdapter(ArrayList<MusicListModel> musicList, Activity context) //adapter gets the json array and turns it into a list of products
+    /**
+     * Create an instance of {@link MusicListAdapter}
+     *
+     * @param musicList An {@link ArrayList} of {@link MusicListModel} to display
+     * @param context   An {@link AppCompatActivity} reference
+     */
+    public MusicListAdapter(ArrayList<MusicListModel> musicList, AppCompatActivity context) //adapter gets the json array and turns it into a list of products
     {
         this.musicList = musicList;
         this.context = context;
@@ -40,9 +56,6 @@ public class MusicListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @NonNull
     @Override
-
-    // From here on we don't really have to worry about the DB but the product list only. Which holds all the data about the products
-
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         MusicItemBinding musicItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.music_item, parent, false);
@@ -51,6 +64,7 @@ public class MusicListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return new ViewHolder(musicItemBinding);
     }
 
+    // Setting up data for the ViewHolders
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
         int index1 = holder.getAdapterPosition() * 2;

@@ -1,10 +1,17 @@
 package com.alphazuluzero.dbugstation.models;
 
+/**
+ * Model Class for music data (dummy data)
+ */
 public class MusicListModel {
     private String musicName;
     private String albumName;
     private int durationInSeconds;
     private String musicImageUrl;
+
+    /**
+     * Parameter for packaged drawables
+     */
     private int musicImageResInt;
     private int id;
 

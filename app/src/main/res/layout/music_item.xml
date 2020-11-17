@@ -7,6 +7,7 @@
         android:layout_height="wrap_content"
         android:background="#00000000">
 
+        <!-- First child for the music list -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/view1"
             android:layout_width="wrap_content"
@@ -20,9 +21,9 @@
             <ImageView
                 android:id="@+id/music_1_image"
                 android:layout_width="wrap_content"
-                android:scaleType="fitStart"
                 android:layout_height="wrap_content"
-                android:src="@drawable/wavepng_1_resize"
+                android:scaleType="fitStart"
+                android:src="@drawable/goodnight"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -31,9 +32,9 @@
                 android:id="@+id/music_1_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/helvetica_neue_bd"
                 android:text="@string/music_name_placeholder"
-                android:layout_marginTop="10dp"
                 android:textColor="@color/Color_White"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@id/music_1_image"
@@ -82,6 +83,7 @@
                 app:layout_constraintTop_toBottomOf="@id/music_1_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!-- Second child for the music list -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/view2"
             android:layout_width="wrap_content"
@@ -96,9 +98,9 @@
             <ImageView
                 android:id="@+id/music_2_image"
                 android:layout_width="wrap_content"
-                android:scaleType="fitStart"
                 android:layout_height="wrap_content"
-                android:src="@drawable/wavepng_1_resize"
+                android:scaleType="fitStart"
+                android:src="@drawable/mooncloud"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -107,9 +109,9 @@
                 android:id="@+id/music_2_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/helvetica_neue_bd"
                 android:text="@string/music_name_placeholder"
-                android:layout_marginTop="10dp"
                 android:textColor="@color/Color_White"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@id/music_2_image"

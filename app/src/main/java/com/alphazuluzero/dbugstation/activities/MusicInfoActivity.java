@@ -1,5 +1,6 @@
 package com.alphazuluzero.dbugstation.activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -21,6 +22,11 @@ import com.squareup.picasso.Transformation;
 
 import java.util.Locale;
 
+/**
+ * An {@link Activity} to display information of a particular music
+ *
+ * @apiNote Supply <b><i>musicId</i></b> integer to display the information of music with that id
+ */
 public class MusicInfoActivity extends AppCompatActivity {
 
     @Override

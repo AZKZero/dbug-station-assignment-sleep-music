@@ -3,7 +3,6 @@ package com.alphazuluzero.dbugstation.activities;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.widget.SeekBar;
 
@@ -38,6 +37,7 @@ public class PlayerActivity extends AppCompatActivity {
             activityPlayerBinding.startTime.setText(R.string._00_00);
             activityPlayerBinding.endTime.setText(String.format(Locale.US, "%02d:%02d", (int) seconds / 60, (int) seconds % 60));
 
+            // Forward and Backward buttons
             activityPlayerBinding.back15.setOnClickListener(v -> {
                 currentSeconds = currentSeconds < 15 ? 0 : currentSeconds - 15;
                 activityPlayerBinding.startTime.setText(String.format(Locale.US, "%02d:%02d", (int) currentSeconds / 60, (int) currentSeconds % 60));
@@ -52,6 +52,7 @@ public class PlayerActivity extends AppCompatActivity {
                 else activityPlayerBinding.playbar.setProgress(currentSeconds * 100 / musicModel.getDurationInSeconds(), true);
             });
 
+            // Respond to SeekBar change events
             activityPlayerBinding.playbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
